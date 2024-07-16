@@ -57,11 +57,9 @@ export default function Card({ title, description, videoUrl, emailForm = null }:
                 ))}
             </p>
             <div className="max-w-[1000px] pb-3 xs:pb-8 sm:pb-16">
-                <React.Suspense fallback={<div className='' />}>
-                    <video controls className="w-full h-[350px] sm:h-[500px] lg:h-[680px] border border-solid border-neutral-50 rounded-xl object-fill">
-                        <source src={videoUrl} />
-                    </video>
-                </React.Suspense>
+                <video controls className="w-full h-[350px] sm:h-[500px] lg:h-[680px] border border-solid border-neutral-50 rounded-xl object-fill">
+                    <source src={videoUrl} />
+                </video>
             </div>
             {emailForm && (
                 <form

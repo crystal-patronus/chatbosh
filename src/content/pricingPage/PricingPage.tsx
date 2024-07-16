@@ -20,6 +20,7 @@ type PricingData = {
 const planTitle = ['Stru Pro', 'Stru Platinum', 'Stru Enterprise'];
 
 const PricingPage: React.FC = () => {
+  const [isAlertOpened, setIsAlertOpened] = useState<boolean>(true);
   const [pricingType, setPricingType] = useState<"Monthly" | "Annually">("Annually");
   const [data, setData] = useState<PricingData[] | null>(null);
   const router = useRouter();
@@ -54,33 +55,38 @@ const PricingPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="w-full flex items-start bg-[#292929] px-3 sm:px-8 py-6 space-x-5" style={{
-          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)',
-          borderRadius: '12px'
-        }}>
-          <div className="hidden sm:block text-white text-xl rounded-full select-none">
-            <AiOutlineInfoCircle />
+        {isAlertOpened && (
+          <div className="w-full flex items-start bg-[#292929] px-3 sm:px-8 py-6 space-x-5" style={{
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.25)',
+            borderRadius: '12px'
+          }}>
+            <div className="hidden sm:block text-white text-xl rounded-full select-none">
+              <AiOutlineInfoCircle />
+            </div>
+            <div>
+              <h3 className="text-white font-semibold grow-0">
+                Stru is currently in beta.
+              </h3>
+              <p className="text-white grow">
+                While in beta, all plans are free of charge. Sign up for exclusive beta access and help refine our platform.
+                A $0.10 card verification is required for account setup, but no further charges will be made until full launch.
+                We'll provide 30 days' notice before the official release. As a thank you, beta users will receive a 50% discount on all plans for the first 3 months post-launch.
+                Please note that some features may be unstable as we continue development.
+              </p>
+            </div>
+            <div
+              className="min-w-2.5 min-h-2.5 sm:min-w-4 sm:min-h-4 outline-none bg-transparent cursor-pointer"
+              onClick={() => setIsAlertOpened(false)}
+            >
+              <Image
+                src="/assets/svg/Cross.svg"
+                alt="Cross"
+                width={20} height={20}
+                className="object-cover"
+              />
+            </div>
           </div>
-          <div>
-            <h3 className="text-white font-semibold grow-0">
-              Stru is currently in beta.
-            </h3>
-            <p className="text-white grow">
-              While in beta, all plans are free of charge. Sign up for exclusive beta access and help refine our platform.
-              A $0.10 card verification is required for account setup, but no further charges will be made until full launch.
-              We'll provide 30 days' notice before the official release. As a thank you, beta users will receive a 50% discount on all plans for the first 3 months post-launch.
-              Please note that some features may be unstable as we continue development.
-            </p>
-          </div>
-          <div className="min-w-2.5 min-h-2.5 sm:min-w-4 sm:min-h-4 outline-none bg-transparent cursor-pointer">
-            <Image
-              src="/assets/svg/Cross.svg"
-              alt="Cross"
-              width={20} height={20}
-              className="object-cover"
-            />
-          </div>
-        </div>
+        )}
 
         <div className="mt-32 w-[340px]">
           <p className="ml-[72%] text-[#F6B24D] font-semibold text-[10px] pb-1">Get 2 Months Free!</p>
@@ -106,6 +112,9 @@ const PricingPage: React.FC = () => {
         </div>
 
         <div className="mt-14 w-full flex flex-wrap gap-3 xl:gap-5 justify-center mx-auto">
+          {!data && (
+            <h2 className="text-white text-center">There is no plans to subscribe</h2>
+          )}
           {data && data.map((plan, index) => (
               <div
                 key={index}
