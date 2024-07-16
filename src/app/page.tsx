@@ -1,10 +1,10 @@
 import React from "react";
-import Overview from "../content/home/overview";
-import Card, { CardProps } from "../content/home/card";
+import Overview from "../content/home/Overview";
+import Card, { CardProps } from "../content/home/Card";
 import ImageSlider from "@/content/imageCarousal/Imageslider";
-import SendForm from "../content/home/sendform";
+import SendForm from "../content/home/Sendform";
 import PageLayout from "./ui/PageLayout";
-import Accordion from "@/content/home/accordion";
+import Accordion from "@/content/home/Accordion";
 
 const cardList: CardProps[] = [
   {

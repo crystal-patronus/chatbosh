@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
-import SendForm from './sendform';
+import SendForm from './Sendform';
 
 export default function Overview() {
     const stars = [1, 2, 3, 4, 5];
