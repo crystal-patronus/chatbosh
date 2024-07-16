@@ -5,7 +5,7 @@ module.exports = {
       return [
         {
           // matching all API routes
-          source: "https://api.stru.ai/v1/:path*", // adjust this pattern to match your API routes
+          source: "/api/:path*", // adjust this pattern to match your API routes
           headers: [
             {
               key: "Access-Control-Allow-Origin",
