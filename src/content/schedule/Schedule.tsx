@@ -55,7 +55,7 @@ const Schedule = () => {
                     </div>
                     <div className="w-full lg:w-[60%]">
                         <Cal
-                            calLink="apricot-tech/15min"
+                            calLink="bhosh/30min"
                             className="lg:h-[340px] lg:overflow-y-scroll custom-scrollbar"
                             // style={{width:"100%",height:"100%",overflow:"scroll"}}
                             config={{layout: 'month_view'}}
