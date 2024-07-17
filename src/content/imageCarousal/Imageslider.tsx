@@ -21,9 +21,9 @@ const ImageSlider: React.FC = () => {
     { imageUrl: 'assets/svg/carousol/JacobsLogo.svg', altText: 'Jacobs Logo' },
     { imageUrl: 'assets/svg/carousol/WSPLogo.svg', altText: 'WSP Logo' },
     { imageUrl: 'assets/svg/carousol/MottLogo.svg', altText: 'Mott MacDonald Logo' },
+    { imageUrl: 'assets/svg/carousol/ArcadisLogo.svg', altText: 'Arcadis Logo' },
     { imageUrl: 'assets/svg/carousol/StantecLogo.svg', altText: 'Stantec Logo' },
     { imageUrl: 'assets/svg/carousol/ParsonsLogo.svg', altText: 'Parsons Logo' },
-    { imageUrl: 'assets/svg/carousol/ArcadisLogo.svg', altText: 'Arcadis Logo' },
     { imageUrl: 'assets/svg/carousol/HDRLogo.svg', altText: 'HDR Inc. Logo' },
     { imageUrl: 'assets/svg/carousol/BechtelLogo.svg', altText: 'Bechtel Logo' },
   ];

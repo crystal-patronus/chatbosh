@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 type AccordionType = {
     question: string;
@@ -39,7 +39,7 @@ const accordionItems: AccordionType[] = [
 ];
 
 type AccordionItemProps = {
-    showDescription: string;
+    isActived: boolean;
     fontWeightBold: string;
     item: AccordionType;
     index: number;
@@ -47,50 +47,58 @@ type AccordionItemProps = {
 }
 
 const AccordionItem = ({
-    showDescription,
+    isActived,
     fontWeightBold,
     item,
     index,
     onItemClick,
-  }: AccordionItemProps) => (
-    <div className="w-full border-b border-[#D2D2D2] border-opacity-40" key={item.question}>
-        <dt>
-            <button
-                aria-controls={`faq${index + 1}_desc`}
-                data-qa="faq__question-button"
-                className={`faq__question-button w-full flex justify-between bg-transparent hover:opacity-80 border-none text-[#EFEFEF] text-xl md:text-2xl text-start font-medium py-6 ${fontWeightBold}`}
-                onClick={onItemClick}
-            >
-                {item.question}
-            </button>
-        </dt>
-        <dd>
-            <p
-                id={`faq${index + 1}_desc`}
-                data-qa="faq__desc"
-                className={`faq__desc text-[#959595] text-xl md:text-2xl ${showDescription}`}
-            >
-                {item.answer}
-            </p>
-        </dd>
-    </div>
-);
+  }: AccordionItemProps) => {
+    const content = useRef<HTMLDivElement | null>(null);
+
+    return (
+        <div className="w-full border-b border-[#D2D2D2] border-opacity-40" key={item.question}>
+            <dt>
+                <button
+                    aria-controls={`faq${index + 1}_desc`}
+                    data-qa="faq__question-button"
+                    className={`faq__question-button w-full flex justify-between bg-transparent hover:opacity-80 border-none text-[#EFEFEF] text-[1rem] leading-[1.6rem] text-start font-medium py-6 ${fontWeightBold}`}
+                    onClick={onItemClick}
+                >
+                    {item.question}
+                </button>
+            </dt>
+            <dd>
+                <p
+                    id={`faq${index + 1}_desc`}
+                    data-qa="faq__desc"
+                    ref={content}
+                    className="faq__desc text-[#959595] text-[1rem] leading-[1.6rem]"
+                    style={{
+                        height: isActived ? `${content.current?.scrollHeight}px` : '',
+                        marginBottom: isActived ? `1rem` : '',
+                    }}
+                >
+                    {item.answer}
+                </p>
+            </dd>
+        </div>
+    )
+}
 
 export default function Accordion() {
     const [activeIndex, setActiveIndex] = useState(1);
 
     const renderedQuestionsAnswers = accordionItems.map((item, index) => {
-        const showDescription = index === activeIndex ? "show-description" : "";
         const fontWeightBold = index === activeIndex ? "font-weight-bold" : "";
 
         return (
           <AccordionItem
-            showDescription={showDescription}
+            isActived={index === activeIndex}
             fontWeightBold={fontWeightBold}
             item={item}
             index={index}
             onItemClick={() => {
-              setActiveIndex(index);
+              setActiveIndex(activeIndex === index ? -1 : index);
             }}
             key={index}
           />
@@ -100,7 +108,7 @@ export default function Accordion() {
     return (
         <section className="w-full flex flex-col items-center mx-auto">
             <h2 className="text-[#EFEFEF] text-center text-5xl sm:text-7xl font-semibold">
-                Frequently Asksed Questions
+                Frequently Asked Questions
             </h2>
             <p className="text-[#EFEFEF] text-lg xs:text-xl large-desktop:text-2xl text-center font-medium pt-16 pb-24">
                 If you have any other questions - please get in touch!

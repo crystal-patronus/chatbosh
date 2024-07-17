@@ -6,7 +6,7 @@ import Footer from '../footer';
 
 const PageLayout = ({ children, type = 2 }: { children: React.ReactNode, type?:number }) => {
     return (
-        <div className="flex flex-col items-center bg-stone-900 relative min-h-screen px-4 xs:px-6 md:px-12 pt-16">
+        <div className="flex flex-col items-center bg-stone-900 relative min-h-screen px-4 xs:px-6 sm:px-10 md:px-20 pt-16">
             <div className="absolute top-[70px] left-0 w-full">
                 <Image
                     loading="lazy"

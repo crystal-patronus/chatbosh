@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/GoogleForm.tsx", "src/content/termsofservice/TermsofService.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/GoogleForm.tsx", "src/content/termsofservice/TermsofService.tsx", "src/app/ui/VideoComponent.js"],
   "exclude": ["node_modules"]
 }

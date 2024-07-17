@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { addToWaitlist } from '@/common/helper';
 import { useRouter } from 'next/navigation';
 
 export default function SendForm({ type = 2 }: { type?: number }) {
+    const [isAddedToWaitlist, setIsAddedToWaitlist] = useState<boolean>(false);
+    const [buttonText, setButtonText] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const router = useRouter();
 
@@ -13,35 +15,49 @@ export default function SendForm({ type = 2 }: { type?: number }) {
         setEmail(e.currentTarget.value);
     };
 
+    const handleRequestDemo = () => {
+        router.push('/schedule'); // Use router.push to navigate
+    }
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault(); // Prevent default form submission
 
         if (email.length === 0) return;
 
-        await addToWaitlist(email);
-        router.push('/schedule'); // Use router.push to navigate
+        const result = await addToWaitlist(email);
+        if (!result) {
+            setButtonText('Added to Waitlist!');
+            setTimeout(() => {
+                setButtonText('Request a demo');
+                setIsAddedToWaitlist(true);
+            }, 700);
+        }
     };
+
+    useEffect(() => {
+        setButtonText('Start crushing tasks');
+    }, [])
 
     if (type == 1) {
         return (
             <form
-                className="max-w-[700px] w-full flex flex-col xl:flex-row items-center lg:items-start mx-auto lg:mx-0 space-y-4 xl:space-y-0"
-                onSubmit={handleSubmit}
+                className="max-w-[620px] w-full flex flex-col xl:flex-row items-center xl:items-start mx-auto xl:mx-0 space-x-3 space-y-4 xl:space-y-0"
+                onSubmit={isAddedToWaitlist ? handleRequestDemo : handleSubmit}
             >
-                <div className="flex flex-col w-full items-center lg:items-start xl:items-center">
+                <div className="flex flex-col w-full items-center xl:items-center space-y-1">
                     <input
-                        className="w-full bg-transparent text-[#FAFAFA] text-base xs:text-xl px-8 py-4 border border-primaryPurple placeholder:text-opacity-40 rounded-full outline-none"
+                        className="w-full bg-transparent text-[#FAFAFA] text-base px-8 py-4 border border-primaryPurple placeholder:text-opacity-40 rounded-full outline-none"
                         type="email"
                         placeholder="Your Corporate Email"
                         onChange={handleInput}
                     />
-                    <span className="text-[#FAFAFA] text-opacity-40 text-[10px] font-light px-0 lg:pl-5 xl:px-0">We never share your email</span>
+                    <span className="text-[#FAFAFA] text-opacity-40 text-[10px] font-light px-0 xl:pl-5 xl:px-0">We never share your email</span>
                 </div>
                 <button
                     type="submit"
-                    className="flex-shrink-0 flex items-center bg-primaryPurple hover:bg-white text-[#FAFAFA] hover:text-primaryPurple text-base xs:text-xl px-12 py-4 cursor-pointer gap-2 rounded-full transition duration-200"
+                    className="flex-shrink-0 flex items-center bg-primaryPurple hover:bg-white text-[#FAFAFA] hover:text-primaryPurple text-base px-8 py-4 cursor-pointer gap-2 rounded-full transition duration-200"
                 >
-                    <span className="font-medium">Start crushing tasks</span>
+                    <span className="font-medium">{buttonText}</span>
                     <FaArrowRight className="text-base" />
                 </button>
             </form>
@@ -50,12 +66,12 @@ export default function SendForm({ type = 2 }: { type?: number }) {
 
     return (
         <form
-            className="max-w-[700px] w-full flex flex-col md:flex-row items-center md:items-start max-md:space-y-3"
-            onSubmit={handleSubmit}
+            className="max-w-[620px] w-full flex flex-col md:flex-row items-center md:items-start space-x-3 max-md:space-y-3"
+                onSubmit={isAddedToWaitlist ? handleRequestDemo : handleSubmit}
         >
-            <div className="flex flex-col w-full items-center">
+            <div className="flex flex-col w-full items-center space-y-1">
                 <input
-                    className="w-full bg-transparent text-[#FAFAFA] text-base xs:text-xl px-8 py-4 border border-primaryPurple placeholder:text-opacity-40 rounded-full outline-none"
+                    className="w-full bg-transparent text-[#FAFAFA] text-base px-8 py-4 border border-primaryPurple placeholder:text-opacity-40 rounded-full outline-none"
                     type="email"
                     placeholder="Your Corporate Email"
                     onChange={handleInput}
@@ -64,9 +80,9 @@ export default function SendForm({ type = 2 }: { type?: number }) {
             </div>
             <button
                 type="submit"
-                className="flex-shrink-0 flex items-center bg-primaryPurple hover:bg-white text-[#FAFAFA] hover:text-primaryPurple text-base xs:text-xl px-12 py-4 cursor-pointer gap-2 rounded-full transition duration-200"
+                className="flex-shrink-0 flex items-center bg-primaryPurple hover:bg-white text-[#FAFAFA] hover:text-primaryPurple text-base px-8 py-4 cursor-pointer gap-2 rounded-full transition duration-200"
             >
-                <span className="font-medium">Start crushing tasks</span>
+                <span className="font-medium">{buttonText}</span>
                 <FaArrowRight className="text-base" />
             </button>
         </form>

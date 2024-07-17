@@ -52,7 +52,7 @@ const categories: FooterCategoryProps[] = [
     items: [
       {
         title: 'Contact Us',
-        to: 'https://forms.gle/WduRfmXW39mueenRA',
+        to: 'mailto:stru@stru.ai',
         target: '_blank'
       },
       {
@@ -98,27 +98,34 @@ const Footer = () => {
         <div className="xs:max-sm:space-y-0.5 space-y-2.5">
           <p className="text-[#959595] text-xs sm:text-sm">© 2024 Stru Inc. All Rights Reserved.</p>
           <div className="flex space-x-1">
-            <div className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
+            <Link
+              href="mailto:stru@stru.ai"
+              className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full"
+            >
               <img
                 className="object-contain"
                 src="/assets/svg/EmailIcon.svg"
                 alt="Email"
               />
-            </div>
-            <div className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
+            </Link>
+            <Link
+              href="https://x.com/StruAi"
+              className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
               <img
                 className="object-contain"
                 src="/assets/svg/XIcon.svg"
                 alt="X"
               />
-            </div>
-            <div className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/stru-ai/"
+              className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
               <img
                 className="object-contain"
                 src="/assets/svg/LinkedinIcon.svg"
                 alt="Linkedin"
               />
-            </div>
+            </Link>
           </div>
         </div>
       </div>
