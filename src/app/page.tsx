@@ -47,7 +47,7 @@ const cardList: CardProps[] = [
 const Home: React.FC = () => {
   return (
     <PageLayout type={1}>
-      <main className="w-full py-20 xs:py-32">
+      <main className="w-full py-20 xs:py-24">
         <Overview />
         <section className="mt-20">
           <p className="text-[#A6A6A6] font-medium text-center">

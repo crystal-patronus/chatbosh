@@ -28,11 +28,11 @@ const Schedule = () => {
                     <h2 className="text-[#EFEFEF] text-center text-5xl sm:text-[72px] font-semibold">
                         Schedule a free demo
                     </h2>
-                    <p className="text-[#EFEFEF] text-lg xs:text-xl large-desktop:text-2xl text-center font-semibold py-16">
+                    <p className="text-[#EFEFEF] text-lg xs:text-xl large-desktop:text-2xl text-center pt-8 pb-16">
                         Full visibility and walkthrough of the software.
                     </p>
                 </div>
-                <section className="w-full flex flex-col lg:flex-row bg-[#292929] px-8 sm:px-16 xl:px-20 max-lg:pt-12 max-lg:pb-8 lg:py-12 xl:py-16 space-y-12 lg:gap-8" style={{
+                <section className="w-full flex flex-col lg:flex-row bg-[#292929] px-8 sm:px-16 xl:px-20 max-lg:pt-12 max-lg:pb-8 lg:py-12 xl:py-16 max-lg:space-y-12 lg:gap-8" style={{
                     boxShadow: '0px 4px 8px rgba(22, 22, 24, 0.25)',
                     borderRadius: '16px'
                 }}>
@@ -55,11 +55,10 @@ const Schedule = () => {
                     </div>
                     <div className="w-full lg:w-[60%]">
                         <Cal
-                            calLink="apricot-tech/15min"
-                            className="lg:h-[340px] lg:overflow-y-scroll custom-scrollbar"
-                            // style={{width:"100%",height:"100%",overflow:"scroll"}}
+                            calLink="bhosh/30min"
+                            className="w-full custom-scrollbar"
                             config={{layout: 'month_view'}}
-                        />;
+                        />
                     </div>
                 </section>
             </main>

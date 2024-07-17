@@ -6,7 +6,7 @@ import GoogleAnalytics from "../lib/GoogleAnalytics";
 const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Stru.ai",
+  title: "Stru – Professional AI for Civil Engineering",
   description: "Stru.ai is a platform for building 3d visualization models using gernerative AI.",
 };
 

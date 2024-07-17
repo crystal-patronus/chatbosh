@@ -44,7 +44,7 @@
   .uniqueSwiper .image-container {
     position: relative;
     /* height: 12rem; Adjust height as needed */
-    width: 100%;
+    /* width: 100%; */
   }
   
   .uniqueSwiper .image-container::before {
