@@ -53,12 +53,11 @@ export const VideoComponent = ({
 
   useEffect(() => {
     if (isVisible) {
-      loadVideo();
       startVideo();
     } else {
       stopVideo();
     }
-  }, [isVisible, loadVideo, startVideo, stopVideo]);
+  }, [isVisible, startVideo, stopVideo]);
 
   return (
     <span
@@ -69,6 +68,9 @@ export const VideoComponent = ({
         height: "100%",
       }}
     >
+      {isVisible && (
+        <div className="text-red-600">Loaded successfully</div>
+      )}
       <video
         ref={videoRef}
         loop
