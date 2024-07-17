@@ -49,12 +49,12 @@ export const VideoComponent = ({
     if (isVisible) {
       startVideoOnMouseMove();
     } else {
-      // stopVideoOnMove();
+      stopVideoOnMove();
     }
   }, [isVisible, startVideoOnMouseMove, stopVideoOnMove]);
 
   return (
-    <span
+    <div
       ref={targetRef}
       style={{
         position: "relative",
@@ -66,7 +66,7 @@ export const VideoComponent = ({
         ref={videoRef}
         loop
         muted
-        autoPlay={true}
+        autoPlay={false}
         playsInline
         poster={poster}
         aria-label={alt}
@@ -81,6 +81,6 @@ export const VideoComponent = ({
       >
         <source src={src} />
       </video>
-    </span>
+    </div>
   );
 };
