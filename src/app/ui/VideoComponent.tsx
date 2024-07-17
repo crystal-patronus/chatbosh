@@ -53,12 +53,11 @@ export const VideoComponent = ({
 
   useEffect(() => {
     if (isVisible) {
-      loadVideo();
       startVideo();
     } else {
       stopVideo();
     }
-  }, [isVisible, loadVideo, startVideo, stopVideo]);
+  }, [isVisible, startVideo, stopVideo]);
 
   return (
     <span
