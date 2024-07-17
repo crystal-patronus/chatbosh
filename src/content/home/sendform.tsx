@@ -16,7 +16,7 @@ export default function SendForm({ type = 2 }: { type?: number }) {
     };
 
     const handleRequestDemo = () => {
-        router.push('/schedule'); // Use router.push to navigate
+        router.push('/demo'); // Use router.push to navigate
     }
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
