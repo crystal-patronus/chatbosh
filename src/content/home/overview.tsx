@@ -18,7 +18,10 @@ export default function Overview() {
                             fontWeight: 600,
                             backgroundImage: 'linear-gradient(91.36deg, #835BEF 66.16%, #A387EE 88.7%)',
                             backgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
+                            WebkitBackgroundClip: 'text',  // Add vendor prefix for background-clip
+                            color: 'transparent',  // Ensure text color is transparent
+                            WebkitTextFillColor: 'transparent',  // Add vendor prefix for text fill color
+                            MozBackgroundClip: 'text',  // Additional vendor prefix for Firefox
                         }}>
                             Minutes
                         </span>
