@@ -100,7 +100,7 @@ const Footer = () => {
           <div className="flex space-x-1">
             <Link
               href="mailto:stru@stru.ai"
-              className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full"
+              className="xs:max-sm:w-[30px] w-[40px] xs:max-sm:h-[30px] h-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full"
             >
               <img
                 className="object-contain"
@@ -110,7 +110,7 @@ const Footer = () => {
             </Link>
             <Link
               href="https://x.com/StruAi"
-              className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
+              className="xs:max-sm:w-[30px] w-[40px] xs:max-sm:h-[30px] h-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
               <img
                 className="object-contain"
                 src="/assets/svg/XIcon.svg"
@@ -119,7 +119,7 @@ const Footer = () => {
             </Link>
             <Link
               href="https://www.linkedin.com/company/stru-ai/"
-              className="xs:max-sm:w-[30px] w-[40px] flex flex-col justify-center items-center p-2 border border-[#787878] rounded-full">
+              className="xs:max-sm:w-[30px] w-[40px] xs:max-sm:h-[30px] h-[40px] justify-center items-center p-2 border border-[#787878] rounded-full">
               <img
                 className="object-contain"
                 src="/assets/svg/LinkedinIcon.svg"
