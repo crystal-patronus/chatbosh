@@ -26,8 +26,7 @@ export const useIsVisible = (
                 } else {
                     setIsVisible(false);
                 }
-            })},
-        optionsRef.current);
+            })}, optionsRef.current);
 
         if (targetRef.current) {
             observer.observe(targetRef.current);

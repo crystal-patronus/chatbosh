@@ -86,7 +86,7 @@ const AccordionItem = ({
 }
 
 export default function Accordion() {
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(-1);
 
     const renderedQuestionsAnswers = accordionItems.map((item, index) => {
         const fontWeightBold = index === activeIndex ? "font-weight-bold" : "";

@@ -71,7 +71,7 @@ export default function Card({ title, description, videoUrl, emailForm = null }:
                         onSubmit={handleSubmit}
                     >
                         <p className="text-[#EFEFEF] text-2xl text-center font-medium">{emailForm?.description}</p>
-                        <div className="max-w-[620px] w-full flex flex-col md:flex-row items-center md:items-start space-x-3 max-md:space-y-3">
+                        <div className="max-w-[620px] w-full flex flex-col md:flex-row items-center md:items-start md:space-x-3 max-md:space-y-3">
                             <div className="flex flex-col w-full items-center space-y-1">
                                 <input
                                     className="bg-transparent w-full text-[#FAFAFA] text-base px-8 py-4 border border-[##D9D9D9] placeholder:text-opacity-40 rounded-full outline-none"
