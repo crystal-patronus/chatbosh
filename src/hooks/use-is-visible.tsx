@@ -16,17 +16,18 @@ export const useIsVisible = (
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                setIsVisible(true);
-                if (once) {
-                    observer.unobserve(entry.target);
-                    observer.disconnect();
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    if (once) {
+                        observer.unobserve(entry.target);
+                        observer.disconnect();
+                    }
+                } else {
+                    setIsVisible(false);
                 }
-            } else {
-                setIsVisible(false);
-            }
-        })}, optionsRef.current);
+            })},
+        optionsRef.current);
 
         if (targetRef.current) {
             observer.observe(targetRef.current);
