@@ -25,7 +25,13 @@ export const VideoComponent = ({
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const startVideoOnMouseMove = useCallback(async () => {
+  const loadVideo = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
+
+  const startVideo = useCallback(async () => {
     try {
       if (videoRef.current) {
         await videoRef.current.play();
@@ -35,7 +41,7 @@ export const VideoComponent = ({
     }
   }, []);
 
-  const stopVideoOnMove = useCallback(() => {
+  const stopVideo = useCallback(() => {
     try {
       if (videoRef.current) {
         videoRef.current.pause();
@@ -47,11 +53,12 @@ export const VideoComponent = ({
 
   useEffect(() => {
     if (isVisible) {
-      startVideoOnMouseMove();
+      loadVideo();
+      startVideo();
     } else {
-      stopVideoOnMove();
+      stopVideo();
     }
-  }, [isVisible, startVideoOnMouseMove, stopVideoOnMove]);
+  }, [isVisible, loadVideo, startVideo, stopVideo]);
 
   return (
     <span
