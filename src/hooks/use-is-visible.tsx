@@ -12,7 +12,7 @@ export const useIsVisible = (
 ) => {
     const optionsRef = useRef(options);
     const [isVisible, setIsVisible] = useState(false);
-    const targetRef = useRef<HTMLElement | null>(null);  // Ensure it's HTMLElement
+    const targetRef = useRef<HTMLDivElement | null>(null);  // Ensure it's HTMLElement
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
