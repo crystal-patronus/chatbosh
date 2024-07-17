@@ -44,7 +44,7 @@ export const VideoComponent = ({
   const stopVideo = useCallback(() => {
     try {
       if (videoRef.current) {
-        videoRef.current.play();
+        videoRef.current.pause();
       }
     } catch (e) {
       // Handle pause error
@@ -69,11 +69,14 @@ export const VideoComponent = ({
         height: "100%",
       }}
     >
+      {isVisible && (
+        <div className="text-red-600">Loaded successfully</div>
+      )}
       <video
         ref={videoRef}
         loop
         muted
-        autoPlay={true}
+        autoPlay={false}
         playsInline
         poster={poster}
         aria-label={alt}
