@@ -63,9 +63,8 @@ export const VideoComponent = ({
       }}
     >
       {isVisible && (
-        <div className="text-red-600">Loaded successfully</div>
+        <div className="text-red-600">{src}</div>
       )}
-      <div>1</div>
       <video
         ref={videoRef}
         loop
@@ -83,7 +82,7 @@ export const VideoComponent = ({
           ...style,
         }}
       >
-        <source src={src} type="video/mp4" />
+        <source src={src} />
       </video>
     </span>
   );
