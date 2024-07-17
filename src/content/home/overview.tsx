@@ -68,7 +68,7 @@ export default function Overview() {
             </div>
             <Fade triggerOnce>
                 <div className="xl:flex-shrink-0 w-full">
-                    <video autoPlay muted className="w-full xl:w-[600px] large-desktop:w-[700px] xl:h-[500px] border border-solid border-neutral-50 mx-auto lg:mx-0 rounded-xl object-fill">
+                    <video autoPlay muted className="w-full h-[250px] xs:h-[350px] md:h-[500px] xl:w-[600px] large-desktop:w-[700px] xl:h-[500px] border border-solid border-neutral-50 mx-auto lg:mx-0 rounded-xl object-fill">
                         <source src="assets/video/StruVideo1-Main.mp4" />
                     </video>
                 </div>
