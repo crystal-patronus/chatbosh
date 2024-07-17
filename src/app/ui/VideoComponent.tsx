@@ -44,7 +44,7 @@ export const VideoComponent = ({
   const stopVideo = useCallback(() => {
     try {
       if (videoRef.current) {
-        videoRef.current.pause();
+        videoRef.current.play();
       }
     } catch (e) {
       // Handle pause error
