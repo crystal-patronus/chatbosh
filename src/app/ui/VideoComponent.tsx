@@ -73,7 +73,7 @@ export const VideoComponent = ({
         ref={videoRef}
         loop
         muted
-        autoPlay={false}
+        autoPlay={true}
         playsInline
         poster={poster}
         aria-label={alt}
