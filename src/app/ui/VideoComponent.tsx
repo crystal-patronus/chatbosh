@@ -49,7 +49,7 @@ export const VideoComponent = ({
     if (isVisible) {
       startVideoOnMouseMove();
     } else {
-      stopVideoOnMove();
+      // stopVideoOnMove();
     }
   }, [isVisible, startVideoOnMouseMove, stopVideoOnMove]);
 
@@ -69,7 +69,7 @@ export const VideoComponent = ({
         ref={videoRef}
         loop
         muted
-        autoPlay={false}
+        autoPlay={true}
         playsInline
         poster={poster}
         aria-label={alt}
