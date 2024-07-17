@@ -62,9 +62,6 @@ export const VideoComponent = ({
         height: "100%",
       }}
     >
-      {isVisible && (
-        <div className="text-red-600">Visibled</div>
-      )}
       <video
         ref={videoRef}
         loop
