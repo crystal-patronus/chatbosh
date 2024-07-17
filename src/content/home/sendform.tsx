@@ -25,7 +25,7 @@ export default function SendForm({ type = 2 }: { type?: number }) {
         if (email.length === 0) return;
 
         const result = await addToWaitlist(email);
-        if (!result) {
+        if (result) {
             setButtonText('Added to Waitlist!');
             setTimeout(() => {
                 setButtonText('Request a demo');
