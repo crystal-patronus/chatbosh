@@ -25,13 +25,7 @@ export const VideoComponent = ({
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const loadVideo = useCallback(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-    }
-  }, []);
-
-  const startVideo = useCallback(async () => {
+  const startVideoOnMouseMove = useCallback(async () => {
     try {
       if (videoRef.current) {
         await videoRef.current.play();
@@ -41,7 +35,7 @@ export const VideoComponent = ({
     }
   }, []);
 
-  const stopVideo = useCallback(() => {
+  const stopVideoOnMove = useCallback(() => {
     try {
       if (videoRef.current) {
         videoRef.current.pause();
@@ -53,11 +47,11 @@ export const VideoComponent = ({
 
   useEffect(() => {
     if (isVisible) {
-      startVideo();
+      startVideoOnMouseMove();
     } else {
-      stopVideo();
+      stopVideoOnMove();
     }
-  }, [isVisible, startVideo, stopVideo]);
+  }, [isVisible, startVideoOnMouseMove, stopVideoOnMove]);
 
   return (
     <span
@@ -71,6 +65,7 @@ export const VideoComponent = ({
       {isVisible && (
         <div className="text-red-600">Loaded successfully</div>
       )}
+      <div>1</div>
       <video
         ref={videoRef}
         loop
