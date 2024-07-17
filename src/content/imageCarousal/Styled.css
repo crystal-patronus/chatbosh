@@ -58,7 +58,7 @@
     transition: background-color 0.3s ease; /* Smooth transition */
     /* background-color: rgb(219, 214, 214);
      */
-     filter: grayscale(100%);
+    filter: grayscale(100%);
     opacity: 0.7;
   }
   .imgHead{
