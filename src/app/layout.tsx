@@ -18,6 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      </head>
       <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTIC_ID} />
       <body className={inter.className}>{children}</body>
     </html>

@@ -65,7 +65,6 @@ export const VideoComponent = ({
       {isVisible && (
         <div className="text-red-600">Visibled</div>
       )}
-      <div className="text-red-600">{src}</div>
       <video
         ref={videoRef}
         loop
